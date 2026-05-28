@@ -1,0 +1,32 @@
+services:
+
+  frontend:
+    build: ./Frontend
+    ports:
+      - "3000:80"
+
+  backend:
+    build: ./Backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Backend/uploads:/app/uploads
+
+  redis:
+    image: redis:7
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: synycs
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin123
+
+  celery:
+    build: ./Backend
+    command: celery -A celery_app worker --pool=solo --loglevel=info
+    depends_on:
+      - redis
+      - backend
+    volumes:
+      - ./Backend/uploads:/app/uploads

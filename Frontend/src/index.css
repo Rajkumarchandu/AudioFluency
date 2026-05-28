@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Multilingual font support */
+body, * {
+  font-family: 'Inter', 'Noto Sans Telugu', 'Noto Sans Devanagari', 
+               'Noto Sans Tamil', 'Noto Sans Kannada', 
+               sans-serif !important;
+}
+
+/* Telugu specific */
+:lang(te), .text-telugu {
+  font-family: 'Noto Sans Telugu', sans-serif;
+}
+
+/* Hindi specific */
+:lang(hi), .text-hindi {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}

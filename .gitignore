@@ -1,0 +1,8 @@
+Backend/venv/
+Backend/audio/*.wav
+Backend/uploads/*.mp4
+Backend/uploads/*.wav
+__pycache__/
+*.pyc
+Backend/env2.env
+*.env
